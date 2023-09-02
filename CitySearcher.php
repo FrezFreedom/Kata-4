@@ -19,7 +19,7 @@ class CitySearcher
 
         foreach ($cities as $city)
         {
-            if(str_starts_with($city, $term))
+            if(str_contains($city, $term))
             {
                 $results[] = $city;
             }
