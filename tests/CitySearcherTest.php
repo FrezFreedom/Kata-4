@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 
 require_once( __DIR__ . '/../CitySearcher.php');
+require_once( __DIR__ . '/../Database.php');
 
 final class CitySearcherTest extends TestCase
 {
@@ -11,7 +12,8 @@ final class CitySearcherTest extends TestCase
      */
     function test_city_searcher($expectedResult, $input): void
     {
-        $citySearcher = new CitySearcher();
+        $database = new Database();
+        $citySearcher = new CitySearcher($database);
 
         $result = $citySearcher->search($input);
 
