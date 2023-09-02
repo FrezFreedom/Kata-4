@@ -14,6 +14,9 @@ class CitySearcher
 
         $results = [];
 
+        if($term == '*')
+            return $cities;
+
         if(strlen($term) < 2)
             return $results;
 
