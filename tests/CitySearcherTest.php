@@ -49,5 +49,12 @@ final class CitySearcherTest extends TestCase
             ],
             'ape',
         ];
+
+        $database = new Database();
+        $cities = $database->loadTableRows('cities');
+        yield [
+            $cities,
+            '*',
+        ];
     }
 }
