@@ -17,7 +17,7 @@ final class CitySearcherTest extends TestCase
 
         $result = $citySearcher->search($input);
 
-        $this->assertSame($expectedResult, $result);
+        $this->assertEqualsCanonicalizing($expectedResult, $result);
     }
 
     public static function provideCitySearcherData()
@@ -25,6 +25,14 @@ final class CitySearcherTest extends TestCase
         yield [
             [],
             'V',
+        ];
+
+        yield [
+            [
+                'Valencia',
+                'Vancouver',
+            ],
+            'Va',
         ];
     }
 }
