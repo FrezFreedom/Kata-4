@@ -34,5 +34,20 @@ final class CitySearcherTest extends TestCase
             ],
             'Va',
         ];
+
+        yield [
+            [
+                'Valencia',
+                'Vancouver',
+            ],
+            'Va',
+        ];
+
+        yield [
+            [
+                'Budapest',
+            ],
+            'ape',
+        ];
     }
 }
