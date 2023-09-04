@@ -9,15 +9,25 @@ class CityRepository implements CityRepositoryInterface
     {
     }
 
-    public function getAllCities()
+    public function getAllCities(): array
     {
         $cities = $this->database->loadTableRows('cities');
         return $cities;
     }
 
-    public function getCityById(int $id)
+    public function getSearchCitiesByTerm(string $term): array
     {
         $cities = $this->database->loadTableRows('cities');
-        return $cities[$id];
+
+        $results = [];
+        foreach ($cities as $city)
+        {
+            if(str_contains($city, $term))
+            {
+                $results[] = $city;
+            }
+        }
+
+        return $results;
     }
 }

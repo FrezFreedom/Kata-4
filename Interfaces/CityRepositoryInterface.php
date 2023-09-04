@@ -3,6 +3,6 @@
 
 Interface CityRepositoryInterface
 {
-    public function getAllCities();
-    public function getCityById(int $id);
+    public function getAllCities(): array;
+    public function getSearchCitiesByTerm(string $term): array;
 }

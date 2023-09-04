@@ -11,24 +11,12 @@ class CitySearcher
 
     public function search($term): array
     {
-        $cities = $this->cityRepository->getAllCities();
-
-        $results = [];
-
         if($term == '*')
-            return $cities;
+            return $this->cityRepository->getAllCities();
 
         if(strlen($term) < 2)
-            return $results;
+            return [];
 
-        foreach ($cities as $city)
-        {
-            if(str_contains($city, $term))
-            {
-                $results[] = $city;
-            }
-        }
-
-        return $results;
+        return $this->cityRepository->getSearchCitiesByTerm($term);
     }
 }
