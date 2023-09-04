@@ -1,16 +1,17 @@
 <?php
 
 require_once('Database.php');
+require_once('Interfaces/CityRepositoryInterface.php');
 
 class CitySearcher
 {
-    public function __construct(private DatabaseInterface $database)
+    public function __construct(private CityRepositoryInterface $cityRepository)
     {
     }
 
     public function search($term): array
     {
-        $cities = $this->database->loadTableRows('cities');
+        $cities = $this->cityRepository->getAllCities();
 
         $results = [];
 
